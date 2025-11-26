@@ -1,0 +1,39 @@
+@use '../helpers' as *;
+
+.notification {
+    position: absolute;
+    min-width: rem(800);
+    top: 100%;
+    left: 100%;
+
+    &__info {
+        
+        display: inline-flex;
+        flex-direction: column;
+        row-gap: rem(10);
+        border: var(--border);
+        padding-inline: rem(80);
+        padding-block: rem(40);
+        background-color: var(--color-header);
+        border-radius: rem(15);
+    }
+
+    &__show {
+        animation: show-notification 1s ease-in-out;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes show-notification {
+        0% {
+            left:100%
+        }
+
+        100% {
+            left: 70%;
+        }
+    }
+
+    &__text {
+        color: var(--color-dark);
+    }
+}

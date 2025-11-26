@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="public/main.css" />
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+  </head>
+  <body>
+        <header class="header" data-js-header>
+        <a href="index.html"><h1>Retrowheels</h1></a>
+        <div class="header__overlay" data-js-header-overlay>
+        <nav>
+        <ul class="header__menu">
+            <li class="header__item">
+                <a href="services.html" class="header__link">Услуги</p></a>
+            </li>
+            <li class="header__item">
+                <a href="about.html" class="header__link">О компании</p></a>
+            </li>
+            <li class="header__item">
+                <a href="car-models-review.html" class="header__link">Реестр автомобилей</p></a>
+            </li>  
+        </ul>
+        </nav>
+        <div class="header__item">
+            <a href="contactts.html" class="header__link">Связаться с нами</a>
+        </div>
+        </div>
+        <button class="header__burger-button burger-button visible-tablet"  aria-label="Open menu" title="Open menu" data-js-header-burger-button>
+            <span class="burger-button__line"></span>
+            <span class="burger-button__line"></span>
+            <span class="burger-button__line"></span>
+        </button>
+    </header>
+    <div id="root"></div>
+    <script type="module" src="./src/main.jsx"></script>
+  </body>
+</html>

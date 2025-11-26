@@ -1,0 +1,18 @@
+@use '../helpers/' as *;
+
+
+.captcha__letter:nth-child(2n) {
+    display: inline-block;
+    transform: rotate(30deg);
+    user-select: none;
+}
+
+.captcha__letter:nth-child(2n + 1) {
+    display: inline-block;
+    transform: rotate(-30deg);
+    user-select: none;
+}
+
+.captcha__error {
+    color: var(--color-gray-50)
+}

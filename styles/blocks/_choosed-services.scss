@@ -1,0 +1,96 @@
+@use '../helpers' as *;
+
+
+.choosed-services {
+
+    &__list {
+        padding: rem(50);
+        display: flex;
+        flex-direction: column;
+        row-gap: rem(20);
+    }
+
+    &__item {
+        border: var(--border);
+        padding: rem(30);
+        width: 50%;
+
+        @include tablet {
+            width: 100%;
+        }
+
+    }
+
+    &__title {
+        color: var(--color-light);
+        @include fluid-text(25,10);
+        display: inline-flex;
+        align-items: center;
+        column-gap: rem(30);
+
+        @include tablet {
+            column-gap: rem(10);
+        }
+    }
+
+    .repair &__title::after {
+        display: inline-block;
+        content: '';
+        width: rem(50);
+        height: rem(50);
+
+        background: url('../../icons/repair.png');
+        background-size: cover;
+
+        @include tablet {
+            width: rem(25);
+            height: rem(25);
+        }
+    }
+
+    .buy-wheels &__title::after {
+        display: inline-block;
+        content: '';
+        width: rem(50);
+        height: rem(50);
+
+        background: url('../../icons/wheel.png');
+        background-size: cover;
+
+        @include tablet {
+            width: rem(25);
+            height: rem(25);
+        }
+    }
+
+    .diagnostics &__title::after {
+        display: inline-block;
+        content: '';
+        width: rem(50);
+        height: rem(50);
+
+        background: url('../../icons/diagnostics.png');
+        background-size: cover;
+
+        @include tablet {
+            width: rem(25);
+            height: rem(25);
+        }
+    }
+
+    &__buy-products {
+        display: flex;
+        column-gap: rem(40);
+        align-items: center;
+    }
+
+    &__promocode {
+        width: 50%;
+        margin-top: rem(50);
+
+        &-result {
+            margin-top: rem(20);
+        }
+    }
+
+}

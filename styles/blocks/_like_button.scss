@@ -1,0 +1,10 @@
+@use '../helpers' as *;
+
+.like-button {
+    &.is-active {
+        color: red;
+    }
+    color: gray;
+    display: flex;
+    align-items: center;
+}

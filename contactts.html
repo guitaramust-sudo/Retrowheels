@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/icons/favicon.png" type="image/png">
+    <title>RetroWheels</title>
+    <link rel="stylesheet" href="public/main.css">
+    <script type="module" src="scripts/main.js" defer></script>
+</head>
+<body>
+        <header class="header" data-js-header>
+        <a href="index.html"><h1>Retrowheels</h1></a>
+        <div class="header__overlay" data-js-header-overlay>
+        <nav>
+        <ul class="header__menu">
+            <li class="header__item">
+                <a href="services.html" class="header__link">Услуги</p></a>
+            </li>
+            <li class="header__item">
+                <a href="about.html" class="header__link">О компании</p></a>
+            </li>
+            <li class="header__item">
+                <a href="car-models-review.html" class="header__link">Реестр автомобилей</p></a>
+            </li>  
+        </ul>
+        </nav>
+        <div class="header__item">
+            <a href="contactts.html" class="header__link">Связаться с нами</a>
+        </div>
+        </div>
+        <button class="header__burger-button burger-button visible-tablet"  aria-label="Open menu" title="Open menu" data-js-header-burger-button>
+            <span class="burger-button__line"></span>
+            <span class="burger-button__line"></span>
+            <span class="burger-button__line"></span>
+        </button>
+    </header>
+        <main>
+            <section class="contacts" aria-labelledby="contacts-title" data-js-contacts>
+                <div class="contacts__square contacts__square-1" data-js-square></div>
+                <div class="contacts__square contacts__square-2" data-js-square></div>
+                <div class="contacts__square contacts__square-3" data-js-square></div>
+                <div class="contacts__body">
+                    <div class="list">
+                        <div class="list__item">
+                            <div class="card container">
+                                <div class="card__preview">
+                                    <div class="card__preview-main">
+                                        <div class="card__preview-info">
+                                            <h2 class="card__preview-title">Свяжитесь с нами</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card__body">
+                                    <form action="" class="feedback-form">
+                                        <div class="feedback-form__cell field">
+                                            <label for="firstName" class="field__label">Имя <span class="field__required-star" aria-hidden="true">*</span></label>
+                                            <input type="text" class="field__control" id="firstName" placeholder="Иван" required>
+                                        </div>
+                                        <div class="feedback-form__cell field">
+                                            <label for="lastName" class="field__label">Фамилия</label>
+                                            <input type="text" class="field__control" id="lastName" placeholder="Иванов">
+                                        </div>
+                                        <div class="feedback-form__cell field">
+                                            <label for="email" class="field__label">Почта <span class="field__required-star" aria-hidden="true">*</span></label>
+                                            <input type="email" class="field__control" id="email" placeholder="example@email.com" required>
+                                        </div>
+                                        <div class="feedback-form__cell field">
+                                            <label for="phoneNumber" class="field__label">Номер телефона <span class="field__required-star" aria-hidden="true">*</span></label>
+                                            <input type="tel" class="field__control" id="phoneNumber" placeholder="Введите номер телефона" required>
+                                        </div>
+                                        <div class="feedback-form__cell field">
+                                            <label for="captha" class="field__label">Введите каптчу: 
+                                                <span class="captcha__letter">p</span>
+                                                <span class="captcha__letter">o</span>
+                                                <span class="captcha__letter">p</span>
+                                                <span class="captcha__letter">a</span>
+                                                <span class="field__required-star" aria-hidden="true">*</span></label>
+                                            <input type="text" class="field__control field__captcha" id="captcha" placeholder="Введите каптчу" required>
+                                            <span class="captcha__error" data-js-error></span>
+                                        </div>
+                                        <div class="feedback-form__cell feedback-form__cell--wide field">
+                                            <label for="message" class="field__label">Сообщение <span class="field__required-star" aria-hidden="true">*</span></label>
+                                            <textarea name="" id="message" class="field__control" placeholder="Привет! У меня есть идея..." required></textarea>
+                                        </div>
+                                        <div class="feedback-form__cell feedback-form__cell--wide">
+                                            <div class="feedback-form__actions">
+                                                <div class="feedback-form__agreement">
+                                                    <label for="" class="checkbox">
+                                                        <input type="checkbox" class="checkbox__input" required>
+                                                        <span class="checkbox__label">Я согласен с условиями обработки данных этим ресурсом</span>
+                                                    </label>
+                                                </div>
+                                                <button class="feedback-form__submit-button button" type="submit">Отправить</button>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <model-viewer src='./images/Chevtolet_Camaro_2009.blend'></model-viewer>
+        </main>
+    <footer class="footer">
+        <ul class="footer__info">
+            <li class="footer__item">
+                
+                <p class="footer__social telegram">Telegram</p>
+                <a href="https://t.me/Guitaramust" target="_blank">
+                <h4 class="hoverText">@Guitaramust</h4>
+                </a>
+            </li>
+            <li class="footer__item">
+                <p class="footer__social gmail">Gmail</p>
+                <a href="mailto:zamskijkosta@gmail.com" target="_blank">
+                <h4 class="hoverText">zamskijkosta@gmail.com</h4>
+                </a>
+            </li>
+        </ul>
+    </footer>
+</body>
+</html>

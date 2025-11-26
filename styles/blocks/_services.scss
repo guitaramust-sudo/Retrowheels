@@ -1,0 +1,9 @@
+@use "../helpers" as *;
+
+.services {
+  &__info {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(30);
+  }
+}

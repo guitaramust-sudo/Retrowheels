@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="public/main.css">
+    <link rel="icon" href="/icons/favicon.png" type="image/png">
+    <title>RetroWheels</title>
+    <script type="module" src="scripts/main.js" defer></script>
+    
+</head>
+  <body>
+        <header class="header" data-js-header>
+        <a href="index.html"><h1>Retrowheels</h1></a>
+        <div class="header__overlay" data-js-header-overlay>
+        <nav>
+        <ul class="header__menu">
+            <li class="header__item">
+                <a href="services.html" class="header__link">Услуги</p></a>
+            </li>
+            <li class="header__item">
+                <a href="about.html" class="header__link">О компании</p></a>
+            </li>
+            <li class="header__item">
+                <a href="car-models-review.html" class="header__link">Реестр автомобилей</p></a>
+            </li>  
+        </ul>
+        </nav>
+        <div class="header__item">
+            <a href="contactts.html" class="header__link">Связаться с нами</a>
+        </div>
+        </div>
+        <button class="header__burger-button burger-button visible-tablet"  aria-label="Open menu" title="Open menu" data-js-header-burger-button>
+            <span class="burger-button__line"></span>
+            <span class="burger-button__line"></span>
+            <span class="burger-button__line"></span>
+        </button>
+    </header>
+    <main class="main">
+      <!-- Добавляем параллакс-фон к первой секции -->
+      <section class="about__hero">
+        <div class="hero-bg" data-js-parallax-bg data-speed="0.5"></div>
+        <div class="container">
+          <h1 class="cars-section-title">О компании Retrowheels</h1>
+          <p class="hero-subtitle">
+            Возрождаем легенды на дорогах современности
+          </p>
+        </div>
+      </section>
+
+      <section class="about-section">
+        <div class="container">
+          <div class="about-grid">
+            <div class="about-text">
+              <h2>Наша история</h2>
+              <p>
+                Retrowheels был основан в 2005 году группой энтузиастов,
+                влюбленных в классические автомобили. Что начиналось как
+                небольшой гараж для реставрации, превратилось в ведущий
+                автосалон ретро-автомобилей в регионе.
+              </p>
+
+              <p>
+                За годы работы мы восстановили и нашли новых владельцев для
+                более чем 500 классических автомобилей, каждая из которых прошла
+                тщательную проверку и реставрацию.
+              </p>
+            </div>
+            <div class="about-image">
+                <img src="/images/salon.jpg" alt="" >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Добавляем параллакс-секцию после истории -->
+      <section class="parallax-section">
+        <div class="parallax-bg" data-js-parallax-bg data-speed="0.3""></div>
+        <div class="container">
+          <div class="parallax-content">
+            <h2>Страсть к классике</h2>
+            <p>Каждый автомобиль - это история, которую мы бережно сохраняем</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="values-section">
+        <div class="container">
+          <h2>Наши ценности</h2>
+          <div class="values-grid">
+            <div class="value-card">
+              <div class="value-icon">⚙️</div>
+              <h3>Аутентичность</h3>
+              <p>
+                Мы сохраняем оригинальность каждой детали, используя только
+                проверенные запчасти и технологии, соответствующие эпохе
+                автомобиля.
+              </p>
+            </div>
+            <div class="value-card">
+              <div class="value-icon">🤝</div>
+              <h3>Честность</h3>
+              <p>
+                Полная прозрачность процесса реставрации и истории каждого
+                автомобиля. Мы дорожим доверием наших клиентов.
+              </p>
+            </div>
+            <div class="value-card">
+              <div class="value-icon">⭐</div>
+              <h3>Качество</h3>
+              <p>
+                Отборные экземпляры, профессиональная реставрация и тщательная
+                проверка перед продажей - наш золотой стандарт.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+<section class="team-section">
+    <div class="container">
+        <h2>Наша команда</h2>
+        <div class="team-grid">
+            <div class="team-member" data-js-team-member>
+                <div class="member-photo">💀</div>
+                <h3>Замский Константин</h3>
+                <p class="member-role">Основатель, главный реставратор</p>
+                <p>Более 30 лет опыта в реставрации классических автомобилей</p>
+            </div>
+            <div class="team-member" data-js-team-member>
+                <div class="member-photo">☀️</div>
+                <h3>Виолетта Астахова</h3>
+                <p class="member-role">Менеджер по продажам</p>
+                <p>Помогла более 200 клиентам найти автомобиль мечты</p>
+            </div>
+            <div class="team-member" data-js-team-member>
+                <div class="member-photo">🚬</div>
+                <h3>Плахотный Кирилл</h3>
+                <p class="member-role">Технический эксперт</p>
+                <p>Сертифицированный специалист по классическим автомобилям</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    </main>
+        <footer class="footer">
+        <ul class="footer__info">
+            <li class="footer__item">
+                
+                <p class="footer__social telegram">Telegram</p>
+                <a href="https://t.me/Guitaramust" target="_blank">
+                <h4 class="hoverText">@Guitaramust</h4>
+                </a>
+            </li>
+            <li class="footer__item">
+                <p class="footer__social gmail">Gmail</p>
+                <a href="mailto:zamskijkosta@gmail.com" target="_blank">
+                <h4 class="hoverText">zamskijkosta@gmail.com</h4>
+                </a>
+            </li>
+        </ul>
+    </footer>
+  </body>
+</html>

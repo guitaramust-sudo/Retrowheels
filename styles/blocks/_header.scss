@@ -1,0 +1,120 @@
+@use "../helpers/" as *;
+
+.header {
+  background-color: var(--color-header);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: rem(50);
+  position: sticky;
+  z-index: 10000;
+  top: 0;
+  animation-name: scrolling-header;
+  animation-fill-mode: both;
+  animation-timeline: scroll();
+  animation-range: rem(100) rem(200);
+
+  @keyframes scrolling-header {
+    to {
+      box-shadow: 0 0 1rem 0 var(--color-dark-40);
+    }
+  }
+
+  &__overlay {
+    @include tablet-above {
+      display: contents;
+    }
+
+    @include tablet {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      row-gap: 3rem;
+      padding: 1rem;
+      background-color: var(--color-dark-10);
+      transition-duration: var(--transition-duration);
+
+      &:not(.is-active) {
+        @include hide;
+
+        translate: 100%;
+      }
+    }
+  }
+
+  &__menu {
+    @include tablet {
+      flex-direction: column;
+      row-gap: rem(30);
+    }
+
+    display: flex;
+    column-gap: rem(20);
+  }
+
+  &__link {
+    @include fluid-text(34, 30);
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    &:hover {
+      color: #d4af37;
+      transform: translateY(-2px);
+    }
+
+    @include tablet {
+      display: flex;
+      justify-content: center;
+      padding: rem(15);
+      border: var(--border);
+      width: fluid(500, 200);
+      border-radius: rem(50);
+      background-color: var(--color-dark-15);
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background-color: #007bff;
+        transition: width 0.6s ease-out;
+        z-index: -1;
+        border-radius: rem(50);
+      }
+
+      &:hover::before {
+        width: 100%;
+        border: rem(1) solid var(--color-accent);
+      }
+    }
+  }
+
+  &__item {
+    @include tablet {
+      text-align: center;
+    }
+  }
+}
+
+.cars-section-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #f5f5dc;
+  margin: 0 0 16px 0;
+  letter-spacing: -1px;
+  text-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+  background: linear-gradient(135deg, #f5f5dc 0%, #d4af37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+}

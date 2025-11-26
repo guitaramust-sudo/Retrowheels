@@ -1,0 +1,53 @@
+@use '../helpers' as *;
+
+.contacts{
+
+
+
+    position: relative;
+    &__square{
+        position: absolute;
+        @include square(rem(200));
+        background: -webkit-linear-gradient(45deg, rgb(19, 194, 202), rgb(18, 122, 126));
+        background: -moz-linear-gradient(45deg, rgb(19, 194, 202), rgb(18, 122, 126));
+        background: linear-gradient(45deg, rgb(19, 194, 202), rgb(18, 122, 126));
+        z-index: 1000;
+        opacity: 0.5;
+        backdrop-filter: blur(rem(10));
+        -webkit-backdrop-filter: blur(rem(10));
+        border-radius: rem(5);
+        animation: float 60s infinite ease-in-out;
+
+        &-1 {
+            top: rem(20);
+            left: rem(20);
+        }
+
+        &-2 {
+            top: 50%;
+            right: rem(20);
+        }
+
+        &-3 {
+            bottom: rem(20);
+            left: rem(20);
+        }
+    }
+
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(var(--pos-x1), var(--pos-y1));
+    }
+    50% {
+        transform: translate(var(--pos-x2), var(--pos-y2));
+    }
+    75% {
+        transform: translate(var(--pos-x3), var(--pos-y3));
+    }
+}
+
+}

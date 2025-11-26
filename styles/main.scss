@@ -1,0 +1,25 @@
+@use "normalize";
+@use "fonts";
+@use "variables";
+@use "globals";
+@use "utils";
+@use "helpers" as *;
+
+@use "blocks/header";
+@use "blocks/hero";
+@use "blocks/footer";
+@use "blocks/sales";
+@use "blocks/car-card";
+@use "blocks/burger-button";
+@use "blocks/card";
+@use "blocks/button";
+@use "blocks/checkbox";
+@use "blocks/contacts";
+@use "blocks/feedback-form";
+@use "blocks/field";
+@use "blocks/like_button";
+@use "blocks/captcha";
+@use "blocks/services";
+@use "blocks/choosed-services";
+@use "blocks/notification";
+@use "blocks/about";

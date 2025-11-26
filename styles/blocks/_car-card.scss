@@ -1,0 +1,27 @@
+@use "../helpers/" as *;
+
+.car-card {
+  display: flex;
+  flex-direction: column;
+  row-gap: rem(20);
+  border: var(--border);
+  border-radius: rem(50);
+  padding: rem(30);
+
+  &__info {
+    &-item {
+      display: flex;
+      align-items: center;
+      column-gap: rem(10);
+      @include mobile-above {
+        justify-content: space-between;
+      }
+    }
+  }
+
+  &__image {
+    z-index: 3000;
+    height: fluid(250, 200);
+    transition: opacity 0.5s ease-in-out;
+  }
+}
