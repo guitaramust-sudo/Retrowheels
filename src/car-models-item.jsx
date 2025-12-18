@@ -5,7 +5,7 @@ import "./CarModelsList.css";
 
 const CarModelsList = () => {
   return (
-    <>
+    <div className="app">
       <header className="cars-header">
         <div className="header-decoration"></div>
         <div className="header-decoration"></div>
@@ -21,18 +21,18 @@ const CarModelsList = () => {
 
       <div className="cars-container">
         {data.cars.map((car) => (
-          <Link to={`/car/${car.id}`} key={car.id} className="car-card-link">
-            <div className="car-card">
+          <div key={car.id} className="car-card">
+            <Link to={`/car/${car.id}`} className="car-card-link">
               <div className="car-header">
                 <h2 className="car-brand">{car.brand}</h2>
                 <h3 className="car-model">{car.model}</h3>
               </div>
               <img
-                src={`../images/${car.id}.jpg`}
+                src={`images/${car.id}.jpg`}
                 alt={`${car.brand} ${car.model}`}
                 className="car-image"
                 onError={(e) => {
-                  e.target.src = "../images/placeholder.jpg";
+                  e.target.src = "images/placeholder.jpg";
                 }}
               />
               <div className="price-container">
@@ -41,11 +41,11 @@ const CarModelsList = () => {
                 </span>
               </div>
               <p className="car-description">{car.shortDescription}</p>
-            </div>
-          </Link>
+            </Link>
+          </div>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="public/main.css">
     <link rel="icon" href="/icons/favicon.png" type="image/png">
     <title>RetroWheels</title>
-    <script type="module" src="scripts/main.js" defer></script>
+    <script src="scripts/main.js" defer></script>
     
 </head>
 <body>
@@ -35,9 +35,129 @@
             <span class="burger-button__line"></span>
             <span class="burger-button__line"></span>
         </button>
+            <div class="notification-system" data-js-notification-system>
+        <div class="notification-bell" data-js-notification-bell></div>
+        <div class="notifications-container" data-js-notifications-container>
+            <div class="no-notifications">Нет новых уведомлений</div>
+        </div>
+    </div>
     </header>
 
     <main data-js-root>
+            <style>
+        /* Стили для системы уведомлений */
+        .notification-system {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .notification-bell {
+            width: 50px;
+            height: 50px;
+            background: #ffd700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .notification-bell:hover {
+            transform: scale(1.1);
+            background: #ffed4a;
+        }
+
+        .notification-bell::before {
+            content: '💡';
+            font-size: 24px;
+        }
+
+        .notification-bell.has-notifications::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 12px;
+            height: 12px;
+            background: #ff4444;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+
+        .notifications-container {
+            position: absolute;
+            top: 60px;
+            right: 0;
+            width: 300px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            display: none;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .notifications-container.active {
+            display: block;
+        }
+
+        .notification-item {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            background: white;
+            animation: slideIn 0.3s ease;
+        }
+
+        .notification-item:last-child {
+            border-bottom: none;
+        }
+
+        .notification-item.new {
+            background: #f8ffd7;
+            border-left: 4px solid #ffd700;
+        }
+
+        .notification-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .notification-message {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .notification-time {
+            font-size: 12px;
+            color: #999;
+            margin-top: 5px;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .no-notifications {
+            padding: 20px;
+            text-align: center;
+            color: #999;
+            font-style: italic;
+        }
+    </style>
         <section class="hero">
             <div class="hero__promo">
                 <h2 class="cars-section-title">Автомобильный салон RetroWheels</h2>
@@ -296,5 +416,120 @@
             </li>
         </ul>
     </footer>
+        <script>
+        class NotificationSystem {
+            constructor() {
+                this.notifications = [];
+                this.maxNotifications = 5;
+                this.notificationInterval = null;
+                this.isContainerVisible = false;
+                
+                this.bell = document.querySelector('[data-js-notification-bell]');
+                this.container = document.querySelector('[data-js-notifications-container]');
+                
+                this.init();
+            }
+
+            init() {
+                this.bell.addEventListener('click', () => this.toggleNotifications());
+                document.addEventListener('click', (e) => this.handleClickOutside(e));
+                
+                this.startNotificationGeneration();
+            }
+
+            startNotificationGeneration() {
+                this.notificationInterval = setInterval(() => {
+                    if (this.notifications.length < this.maxNotifications) {
+                        this.generateNotification();
+                    } else {
+                        clearInterval(this.notificationInterval);
+                    }
+                }, 3000);
+            }
+
+            generateNotification() {
+                const messages = [
+                    { title: 'Новое поступление!', message: 'Появился новый ретро-автомобиль в каталоге' },
+                    { title: 'Спецпредложение', message: 'Скидка 10% на все автомобили до конца недели' },
+                    { title: 'Обновление каталога', message: 'Добавлены новые фотографии автомобилей' },
+                    { title: 'Акция!', message: 'Бесплатная доставка при покупке от 2 автомобилей' },
+                    { title: 'Новость', message: 'Открыт новый шоу-рум в центре города' }
+                ];
+
+                const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+                const notification = {
+                    id: Date.now(),
+                    title: randomMessage.title,
+                    message: randomMessage.message,
+                    time: new Date().toLocaleTimeString(),
+                    isNew: true
+                };
+
+                this.notifications.unshift(notification);
+                this.updateBell();
+                this.renderNotifications();
+            }
+
+            updateBell() {
+                const hasNew = this.notifications.some(notif => notif.isNew);
+                this.bell.classList.toggle('has-notifications', hasNew);
+            }
+
+            renderNotifications() {
+                const container = this.container;
+                
+                if (this.notifications.length === 0) {
+                    container.innerHTML = '<div class="no-notifications">Нет новых уведомлений</div>';
+                    return;
+                }
+
+                container.innerHTML = this.notifications.map(notification => `
+                    <div class="notification-item ${notification.isNew ? 'new' : ''}" data-id="${notification.id}">
+                        <div class="notification-title">${notification.title}</div>
+                        <div class="notification-message">${notification.message}</div>
+                        <div class="notification-time">${notification.time}</div>
+                    </div>
+                `).join('');
+
+                container.querySelectorAll('.notification-item').forEach(item => {
+                    item.addEventListener('click', (e) => {
+                        const id = parseInt(e.currentTarget.dataset.id);
+                        this.markAsRead(id);
+                    });
+                });
+            }
+
+            markAsRead(id) {
+                const notification = this.notifications.find(notif => notif.id === id);
+                if (notification) {
+                    notification.isNew = false;
+                    this.updateBell();
+                    this.renderNotifications();
+                }
+            }
+
+            toggleNotifications() {
+                this.isContainerVisible = !this.isContainerVisible;
+                this.container.classList.toggle('active', this.isContainerVisible);
+                
+                if (this.isContainerVisible) {
+                    this.notifications.forEach(notif => notif.isNew = false);
+                    this.updateBell();
+                }
+            }
+
+            handleClickOutside(event) {
+                if (!this.container.contains(event.target) && 
+                    !this.bell.contains(event.target) && 
+                    this.isContainerVisible) {
+                    this.toggleNotifications();
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            new NotificationSystem();
+        });
+    </script>
 </body>
 </html>
