@@ -67,7 +67,7 @@
                                         </div>
                                         <div class="feedback-form__cell field">
                                             <label for="phoneNumber" class="field__label">Номер телефона <span class="field__required-star" aria-hidden="true">*</span></label>
-                                            <input type="tel" class="field__control" id="phoneNumber" placeholder="Введите номер телефона" required>
+                                            <input type="tel" class="field__control" id="phoneNumber" placeholder="Введите номер телефона" pattern="^[\+]?[\d\s\-\(\)]{10,15}$"  required>
                                         </div>
                                         <div class="feedback-form__cell field">
                                             <label for="captha" class="field__label">Введите каптчу: 
@@ -102,7 +102,6 @@
                     </div>
                 </div>
             </section>
-            <model-viewer src='./images/Chevtolet_Camaro_2009.blend'></model-viewer>
         </main>
     <footer class="footer">
         <ul class="footer__info">
